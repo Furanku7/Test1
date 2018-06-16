@@ -1,0 +1,62 @@
+name = "Frank"
+age = 17
+my_list = [1, 2, 3]
+
+
+print("Hello, %s!" % name)
+# To use two or more argument specifiers, use a tuple (parentheses):
+print("%s is %d years old." % (name, age))
+# Any object which is not a string can be formatted using the %s operator as well.
+print("A list: %s" % my_list)
+
+# %s - String (or any object with a string representation, like numbers)
+# %d - Integers
+# %f - Floating point numbers
+# %.<number of digits>f - Floating point numbers with a fixed amount of digits to the right of the dot.
+# %x/%X - Integers in hex representation (lowercase/uppercase)
+
+data = ("John", "Doe", 53.44)
+# format_string = "Hello"
+format_string = "Hello %s %s. Your current balance is $%s."
+
+# print(format_string, "%s %s. Your current balance is $%.2f" % (data))
+print(format_string % data)
+
+
+person = {'name': 'Frank', 'age': 23}
+
+# No, no, no.
+sentence = 'My name is ' + person['name'] + ' and I am ' + str(person['age']) + ' years old.'
+print(sentence)
+
+# Yes, yes, yes.
+sentence = 'My name is {} and I am {} years old.'.format(person['name'], person['age'])
+print(sentence)
+
+sentence = 'My name is {0} and I am {1} years old.'.format(person['name'], person['age'])
+print(sentence)
+
+sentence = 'My name is {0[name]} and I am {0[age]} years old.'.format(person)
+
+l = ['Jenn', 23]
+
+sentence = 'My name is {0[0]} and I am {0[1]} years old.'.format(l)
+print(sentence)
+
+tag = 'h1'
+text = 'This is a headline'
+
+sentence = '<{0}>{1}</{0}>'.format(tag, text)
+print(sentence)
+
+
+class Person():
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p1 = Person('Jack', '33')
+
+sentence = 'My name is {0name} and I am {0.age} years old.'.format(p1)
+print(sentence)
